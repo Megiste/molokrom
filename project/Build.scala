@@ -7,8 +7,6 @@ object ApplicationBuild extends Build {
   val appName         = "molokrom"
   val appVersion      = "1.0-SNAPSHOT"
 
-
-
   val appDependencies = Seq(
 	  jdbc, anorm,
     "postgresql" % "postgresql" % "8.4-702.jdbc4"
