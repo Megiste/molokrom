@@ -1,0 +1,34 @@
+@(placeId:Long,statusForm: Form[String])
+
+@import helper._
+@import models._
+@import util._
+
+@main("Etat du Molok") {
+    <style>
+    div 
+    {
+        width:100%;
+         text-align:center;
+    }
+	</style>
+	
+    <div>
+    <h2>@Place.find(placeId).label</h2>
+</div>
+<div>
+	Indiquez l'état du Molok.<Br/>
+    	@Misc.getCurrentDate()
+</div>  
+	@form(routes.Application.createNewStatus(placeId)) {
+		<div>
+         @inputText(statusForm("name"), args = 'size -> 25, 'placeholder -> "Votre nom (optionnel)",'_label -> "") 
+        </div>    <div>
+        <button type="submit" name="action" value="green"><img src="/assets/images/green64.png" alt="green" /> </button>
+      
+        <button type="submit" name="action" value="red"><img src="/assets/images/red64.png" alt="green" /> </button>
+        </div>    
+    }
+	
+	
+}
