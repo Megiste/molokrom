@@ -25,7 +25,7 @@ object Status {
   def create(placeId: Long, state: String, name: String) = {
 	  println("Create !! "+placeId + " state :" + state + " name:" + name)
 	  DB.withConnection { implicit c =>
-  	  SQL("insert into status (place_id, state, name, dte_upd) values ({placeId},{state},{name}, current_timestamp())")
+  	  SQL("insert into status (place_id, state, name, dte_upd) values ({placeId},{state},{name}, current_timestamp)")
 	  .on('placeId -> placeId,'state -> state,'name -> name).executeUpdate()
 	  	}
   }
