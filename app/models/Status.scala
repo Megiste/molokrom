@@ -6,10 +6,14 @@ import play.api.db._
 import play.api.Play.current
 
 case class Status(id: Long, placeId: Long, state: String, date: java.util.Date, name:String) {
-	def getCurrentImageKey():String = {
+	def getCurrentImageKey(size:Int):String = {
 	
-	(	if(this.state == "R") "red" else "green") + "64.png"
+	(	if(this.state == "R") "red" else "green") + size +".png"
 	}
+    
+    def fullName():String={
+        if(name==null || name=="") " (inconnu) " else name
+    }
 }
 
 object Status {

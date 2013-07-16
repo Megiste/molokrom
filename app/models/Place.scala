@@ -16,6 +16,11 @@ case class Place(id: Long, label: String) {
 		val state = getCurrentState()
 	(	if(state == "R") "red" else "green") + "64.png"
 	}
+    
+	def getCurrentImageKey(size:Int):String = {
+		val state = getCurrentState()
+	(	if(state == "R") "red" else "green") + size + ".png"
+	}
 	
 	def getSpanSinceLastUpdate(): Int = {
 		val span = java.lang.System.currentTimeMillis() - Status.lastStatusForPlace(id).date.getTime()

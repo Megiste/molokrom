@@ -2,9 +2,9 @@
  # --- !Ups
 
  
-INSERT INTO place VALUES (1,'Route de Vaulion');
-INSERT INTO place VALUES (2,'Place du bourg gauche');
-INSERT INTO place VALUES (3,'Place du bourg droite');
+INSERT INTO place VALUES (1,'Rte. de Vaulion');
+INSERT INTO place VALUES (2,'Pl. du bourg gauche');
+INSERT INTO place VALUES (3,'Pl. du bourg droite');
 INSERT INTO place VALUES (4,'Croy');
 
 INSERT INTO status (place_id,state,name,dte_upd) VALUES (1,'G','init',CURRENT_TIMESTAMP);
