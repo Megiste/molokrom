@@ -13,8 +13,9 @@ def getCurrentDate() : String ={
 }
 
 def formatDate(date:Date) : String ={
-	
-	new SimpleDateFormat("EEEE dd MMM HH'h'mm").format(date)
+	val simpleDateFormat = new SimpleDateFormat("EEEE dd MMM HH'h'mm",Locale.FRENCH)
+	simpleDateFormat.setTimeZone(TimeZone.getTimeZone("CET"));
+	simpleDateFormat.format(date)
 }
 
 def prettyPrintDuration(min:Int):String = {
