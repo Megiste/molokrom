@@ -41,7 +41,7 @@ case class Place(id: Long, label: String) {
 object Place {
   
   def all(): List[Place] = DB.withConnection { implicit c =>
-  SQL("select * from place ").as(place *)
+  SQL("select * from place order by id").as(place *)
   }
   val place = {
     get[Long]("id") ~ 

@@ -18,7 +18,7 @@ def formatDate(date:Date) : String ={
 }
 
 def prettyPrintDuration(min:Int):String = {
-	if(min>=1440) "" + min/1440 + " jour(s)" + prettyPrintDuration(min%1440) else if (min>=60) "" + min/60 + " heure(s) " + prettyPrintDuration(min%60) else  min + " min" 
+	if(min>=1440) "" + min/1440 + " j" + prettyPrintDuration(min%1440) else if (min>=60) "" + min/60 + " h " + prettyPrintDuration(min%60) else  min + " min" 
 }
 
 }
