@@ -18,7 +18,12 @@ object Application extends Controller {
   def places = index
   
   def editStatus(id: Long) = Action {
-    Ok(views.html.update(id,statusForm))
+	implicit request => {
+	
+	val cookieSet = !request.cookies.get("name").isEmpty
+	
+    Ok(views.html.update(id, if(cookieSet) statusForm.fill(request.cookies.get("name").get.value) else statusForm))
+	}
   }
   
   def history(id: Long) = Action {
@@ -42,7 +47,7 @@ object Application extends Controller {
 		   
 		   }
 		   
-		   Redirect(routes.Application.places)})
+		   Redirect(routes.Application.places).withCookies(Cookie("name", t))})
 	  
 	
   }}
