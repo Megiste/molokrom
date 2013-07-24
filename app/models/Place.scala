@@ -13,13 +13,14 @@ case class Place(id: Long, label: String) {
 	}
 	
 	def getCurrentImageKey():String = {
-		val state = getCurrentState()
-	(	if(state == "R") "red" else "green") + "64.png"
+        getCurrentImageKey(32)
 	}
     
 	def getCurrentImageKey(size:Int):String = {
 		val state = getCurrentState()
-	(	if(state == "R") "red" else "green") + size + ".png"
+		val minutes=getSpanSinceLastUpdate()
+		val  name = if(minutes > 36 * 60) "grey" else if(state == "R") "red" else "green"
+        name + size + ".png"
 	}
 	
 	def getSpanSinceLastUpdate(): Int = {
